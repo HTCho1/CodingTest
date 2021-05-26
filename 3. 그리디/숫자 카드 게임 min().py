@@ -25,3 +25,16 @@ for i in range(n):
 
 
 print(result)
+
+#--------------------------------------------------#
+
+result = 0
+
+for i in range(n):
+    card = list(map(int, input().split()))
+    card.sort()
+    min_value = card[0]
+    if result < min_value:
+        result = min_value
+
+print(result)
