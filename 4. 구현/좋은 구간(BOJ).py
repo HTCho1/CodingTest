@@ -19,11 +19,11 @@ for i in s:
         break
 
 for i in range(min_value + 1, max_value):
-    if i > n:
-        break
-    for x in range(i + 1, max_value):
-        print('i, x: ', i, ',', x)
-        if i <= n <= x:
+    for j in range(i + 1, max_value):
+        if i == j:
+            continue
+        if i <= n <= j:
+            #print('i, j: ', i, ',', j)
             result += 1
 print(result)
 
