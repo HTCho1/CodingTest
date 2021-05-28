@@ -35,3 +35,21 @@ for step in steps:
         count += 1
 
 print(count)
+
+#----------------------------------------------------------------------#
+coordinate = input()
+row = int(coordinate[1])
+column = int(ord(coordinate[0])) - int(ord('a')) + 1
+
+dx = [-1, 1, -1, 1, -2, 2, -2, 2]
+dy = [2, 2, -2, -2, 1, -1, -1, 1]
+
+count = 0
+for i in range(len(dx)):
+    next_row = row + dx[i]
+    next_column = column + dy[i]
+    if next_row < 1 or next_column < 1 or next_row > 8 or next_column > 8:
+        continue
+    count += 1
+
+print(count)
