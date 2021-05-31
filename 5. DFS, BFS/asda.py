@@ -1,37 +1,17 @@
-import sys
-sys.setrecursionlimit(100000)
-input = sys.stdin.readline
-def dfs(x, y):
-    dx = [-1, 1, 0, 0]
-    dy = [0, 0, -1, 1]
-    visited[y][x]=1
-    for i in range(4):
-        nowx, nowy = x+dx[i], y+dy[i]
-        if 0<=nowx<n and 0<=nowy<n and arr[y][x]==arr[nowy][nowx] and visited[nowy][nowx]==0:
-            dfs(nowx, nowy)
-
 n = int(input())
-arr = [list(map(str, input())) for _ in range(n)]
-visited = [[0]*n for _ in range(n)]
-cnt1 = 0
-for i in range(n):
-    for j in range(n):
-        if visited[i][j]==0:
-            cnt1+=1
-            dfs(j, i)
+edge = int(input())
 
-for i in range(n):
-    for j in range(n):
-        if arr[i][j]=='R':
-            arr[i][j]='G'
+line = [list(map(int, input().split())) for _ in range(edge)]
+graph = [[0 for _ in range(n + 1)] for _ in range(n + 1)]
+for i in graph:
+    graph[i[0]][i[1]] = graph[i[1]][i[0]] = 1
 
-cnt2 = 0
-visited = [[0]*n for _ in range(n)]
-for i in range(n):
-    for j in range(n):
-        if visited[i][j]==0:
-            cnt2+=1
-            dfs(j, i)
+def dfs(v):
+    visited[v] = True
+    for i in range(1, n + 1):
+        if graph[v][i] == 1 and visited[i] == 0:
+            dfs(i)
 
-print(cnt1,cnt2)
-
+visited = [False] * (n + 1)
+dfs(1)
+print(visited.count(True) - 1)
