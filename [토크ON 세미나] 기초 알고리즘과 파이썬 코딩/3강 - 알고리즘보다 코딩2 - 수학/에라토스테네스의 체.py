@@ -1,5 +1,9 @@
 # 에라토스테네스의 체
 # 소수를 구하는 방법
+import time
+
+era_2 = time.time()
+
 
 def era(N):
     ck, p = [False for _ in range(N + 1)], []
@@ -10,4 +14,5 @@ def era(N):
             ck[j] = True
     return ck, p
 
-print(era(40)[1])
+print(era(1000000)[1])
+print('era time: ', time.time() - era_2)

@@ -5,7 +5,7 @@ def isPrime(N):
         if N % i == 0: return print('소수가 아닙니다.')
     return print('소수입니다.')
 
-isPrime(19)
+isPrime(1)
 
 
 # 2부터 sqrt(N)까지 체크
@@ -17,4 +17,4 @@ def isPrime(N):
         i += 1
     return print('소수입니다.')
 
-isPrime(19)
+isPrime(1)
