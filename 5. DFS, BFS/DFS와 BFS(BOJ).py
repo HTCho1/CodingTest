@@ -8,7 +8,7 @@ for i in range(e):
     l = list(map(int, input().split()))
     graph[l[0]][l[1]] = 1
     graph[l[1]][l[0]] = 1
-
+print(graph)
 
 def dfs(v):
     # 현재 노드를 방문 처리

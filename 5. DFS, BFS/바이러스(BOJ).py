@@ -35,3 +35,30 @@ def dfs(v):
 visited = [False] * (n + 1)
 dfs(1)
 print(visited.count(True) - 1)
+
+#--------------------------------------------------#
+
+from collections import deque
+
+n = int(input())
+e = int(input())
+
+lst = [list(map(int, input().split())) for _ in range(e)]
+graph = [[0 for _ in range(n + 1)] for _ in range(n + 1)]
+for i, j in lst:
+    graph[i][j] = graph[j][i] = 1
+
+def bfs(v):
+    queue = deque([v])
+    visited[v] = True
+    while queue:
+        s = queue.popleft()
+        for i in range(1, n + 1):
+            if graph[s][i] == 1 and visited[i] == False:
+                queue.append(i)
+                visited[i] = True
+
+visited = [False] * (n + 1)
+
+bfs(1)
+print(visited.count(True) - 1)
