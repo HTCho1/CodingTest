@@ -1,3 +1,5 @@
+# 프로그래머스 Level 1
+# 2016년, 연습문제
 import sys
 import datetime
 a = int(sys.stdin.readline())
