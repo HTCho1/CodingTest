@@ -25,7 +25,6 @@ def solution(a, b):
         now += month[i]
 
     answer = (now + b - 1) % 7
-
     return days[answer]
 
 print(solution(a, b))
@@ -38,7 +37,6 @@ a, b = int(sys.stdin.readline()), int(sys.stdin.readline())
 def getDayName(a,b):
     days=['FRI','SAT','SUN','MON','TUE','WED','THU']
     month=[31,29,31,30,31,30,31,31,30,31,30,31]
-
     return days[(sum(month[:a-1])+(b-1))%7]
 
 print(getDayName(a,b))
