@@ -9,7 +9,6 @@ def correctBracket(input_data):
         if input == '(': stack.append(input)
         elif input == ')' and len(stack) != 0: stack.pop()
         elif input == ')' and len(stack) == 0: return [None]
-        else: print('Not allowed symbol.')
     return stack
 
 answer = correctBracket(input_data)
