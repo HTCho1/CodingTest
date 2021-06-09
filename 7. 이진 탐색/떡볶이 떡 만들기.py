@@ -2,23 +2,24 @@ import sys
 
 def binary_search(array, target, start, end):
     while start <= end:
-        result = 0
+        length = 0
         mid = (start + end) // 2
         for i in array:
             # 잘랐을 때의 떡의 양 계산
             if i > mid: # 떡의 높이가 절단기의 높이(mid)보다 작으면 자를 수 없기 때문에 큰 경우에만 절단
-                result += i - mid
-        if result == target:
-            return mid
-        elif result < target:
+                length += i - mid
+        # 떡의 길이가 부족한 경우 더 많이 자르기 (왼쪽 부분 탐색)
+        if length < target:
             end = mid - 1
+        # 떡의 길이가 충분한 경우 덜 자르기 (오른쪽 부분 탐색)
         else:
+            answer = mid # 최대한 덜 잘랐을 때가 정답이므로, 여기에서 answer에 기록
             start = mid + 1
-    return None
+    return answer
 
 N, target = map(int, sys.stdin.readline().rstrip().split())
 array = list(map(int, sys.stdin.readline().rstrip().split()))
-array.sort()
+answer = 0
 
 print(binary_search(array, target, 0, max(array)))
 
