@@ -1,3 +1,4 @@
+# BOJ 1629
 a, b, c = map(int, input().split())
 
 def pow_custom(a, b, mod):
