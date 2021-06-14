@@ -1,3 +1,4 @@
+# 점화식: a[i] = max(a[i - 1], a[i - 2] + k[i])
 import sys
 
 N = int(sys.stdin.readline().strip())
@@ -14,5 +15,5 @@ d[1] = max(storage[0], storage[1])
 for i in range(2, N):
     d[i] = max(d[i - 1], d[i - 2] + storage[i])
 
-#print(d)
+print(d)
 print(d[N - 1])
