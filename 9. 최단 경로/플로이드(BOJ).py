@@ -1,3 +1,4 @@
+# BOJ 11404
 import sys
 
 INF = int(1e9)
