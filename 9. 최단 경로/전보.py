@@ -1,7 +1,7 @@
 import sys
 import heapq
 
-n, m, c = map(int, sys.stdin.readline().rstrip().split())
+n, m, start = map(int, sys.stdin.readline().rstrip().split())
 INF = int(1e9)
 graph = [[] for _ in range(n + 1)]
 distance = [INF] * (n + 1)
@@ -28,7 +28,7 @@ def dijkstra(start):
                 distance[i[0]] = cost
                 heapq.heappush(q, (cost, i[0]))
 
-dijkstra(c)
+dijkstra(start)
 # C에서 다른 도시로 가는데 걸리는 시간을 저장할 리스트
 d = []
 # C에서 보낸 메세지를 받는 도시의 개수
